@@ -1,18 +1,7 @@
 ﻿using ReportGeneration_Shihova.Classes;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ReportGeneration_Shihova.Pages
 {
@@ -63,7 +52,7 @@ namespace ReportGeneration_Shihova.Pages
                 int idGroup = AllGroups.Find(x => x.Name == cbGroups.SelectedItem).Id;
                 SearchStudent = AllStudents.FindAll(x => x.IdGroup == idGroup);
             }
-            CreateStudents(SearchStudent.FindAll(x => $"{x.Lastname} {x.Firstname}".Contains(tbFIO.Text)));
+            CreateStudents(SearchStudent.FindAll(x => $"{x.LastName} {x.FirstName}".Contains(tbFIO.Text)));
         }
     }
 }
