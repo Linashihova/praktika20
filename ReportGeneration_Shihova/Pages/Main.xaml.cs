@@ -1,5 +1,6 @@
 ﻿using ReportGeneration_Shihova.Classes;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -53,6 +54,14 @@ namespace ReportGeneration_Shihova.Pages
                 SearchStudent = AllStudents.FindAll(x => x.IdGroup == idGroup);
             }
             CreateStudents(SearchStudent.FindAll(x => $"{x.LastName} {x.FirstName}".Contains(tbFIO.Text)));
+        }
+        private void ReportGeneration(object sender, RoutedEventArgs e)
+        {
+            if (cbGroups.SelectedIndex != cbGroups.Items.Count - 1)
+            {
+                int idGroup = AllGroups.Find(x => x.Name == cbGroups.SelectedItem).Id;
+                Classes.Common.Report.Group(idGroup, this);
+            }
         }
     }
 }
